@@ -1,11 +1,14 @@
+// @ts-check
 /**
+ * @link{https://leetcode.com/problems/add-two-numbers/#/description}
+ *
  * @Description
- * 
+ *
  * You are given two non-empty linked lists representing two non-negative integers.
  * The digits are stored in reverse order and each of their nodes contain a single digit.
  * Add the two numbers and return it as a linked list.
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
- * 
+ *
  * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  * Output: 7 -> 0 -> 8
  */
@@ -15,7 +18,7 @@
  *     this.val = val;
  *     this.next = null;
  * }
- * 
+ *
  * @example const linkedList = [2->1->7]
  * const fir = linkedList;
  * fir.val === 2; // true
@@ -23,7 +26,7 @@
  * sec.val === 1; // true
  * const thir = sec.next;
  * thir.val === 7; // true
- * 
+ *
  * @test
  * [2 -> 4 -> 3] + [5 -> 6 -> 4] === [7 -> 0 -> 8]
  */
@@ -38,7 +41,7 @@ function ListNodeFactory(arr) {
   if (!arr.length) return [];
   r = new ListNode(arr[0]);
   for (let i = 1; i < arr.length; i++) {
-    r.next = new ListNodeFactory(arr.splice(1));
+    r.next = ListNodeFactory(arr.splice(1));
   }
   return r;
 }
