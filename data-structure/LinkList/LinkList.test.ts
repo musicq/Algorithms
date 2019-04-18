@@ -26,3 +26,13 @@ test('test 10 length array', () => {
     a = a.next;
   }
 });
+
+test('test push an element into a linklist', () => {
+  const arr = Array.from({ length: 10 }).map((_, i) => i);
+  const list = LinkList.from(arr);
+
+  const pushElement = -1;
+  const newList = LinkList.push(list, pushElement);
+
+  expect(newList.value).toBe(pushElement);
+});
