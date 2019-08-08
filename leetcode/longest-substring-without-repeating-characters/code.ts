@@ -27,6 +27,9 @@ export function lengthOfLongestSubstring(str: string) {
     cur.push(st);
   }
 
-  console.log(prev.length < cur.length ? cur : prev);
-  return Math.max(prev.length, cur.length);
+  // print the result
+  // console.log(prev.length < cur.length ? cur : prev);
+
+  // use if-else instead of Math.max to increase speed
+  return prev.length < cur.length ? cur.length : prev.length;
 }
