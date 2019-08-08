@@ -17,3 +17,9 @@ test('pwwkew expect to 1', () => {
 
   expect(lengthOfLongestSubstring(str)).toBe(3);
 });
+
+test('ggububgvfk expect to 6', () => {
+  const str = 'ggububgvfk';
+
+  expect(lengthOfLongestSubstring(str)).toBe(6);
+});
