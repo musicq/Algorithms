@@ -3,12 +3,12 @@ import LinkList, { LinkNode } from '../../data-structure/LinkList/LinkList';
 import { time } from '../../utils/timeCount';
 
 function checkPalindrome(str: LinkNode<string>): boolean {
-  if (!str.value) {
+  if (!str) {
     return false;
   }
 
   if (!str.next) {
-    return true;
+    return Boolean(str.value != undefined);
   }
 
   // two words
@@ -20,24 +20,32 @@ function checkPalindrome(str: LinkNode<string>): boolean {
   let fp: LinkNode<string> | undefined = str;
   let lastP: LinkNode<string> | undefined;
 
-  while (sp && sp.next) {
+  while (sp.next) {
     fp = fp!.next!.next;
-    // next node
+    // store next node
     let np: LinkNode<string> = sp.next;
     // reverse link next node
     sp.next = lastP;
     // reassign last pointer to current node
     lastP = sp;
-    // set sp to next pointer
+    // set sp to next pointer to move on
     sp = np;
 
     // odd
+    // abcba
+    // -sf--
+    // --s-f
     if (!fp!.next) {
+      // move sp to next point
       sp = sp.next;
       break;
     } else if (!fp!.next.next) {
       // even
+      // abccba
+      // -sf---
+      // --s-f-
       sp = sp.next;
+      // reset last pointer to current node
       np.next = lastP;
       lastP = np;
       break;
@@ -45,9 +53,9 @@ function checkPalindrome(str: LinkNode<string>): boolean {
   }
 
   while (sp && lastP) {
-    if (sp.value === lastP!.value) {
+    if (sp.value === lastP.value) {
       sp = sp.next;
-      lastP = lastP!.next;
+      lastP = lastP.next;
       continue;
     } else {
       return false;
