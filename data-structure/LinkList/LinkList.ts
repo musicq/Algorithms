@@ -1,9 +1,9 @@
-export class LinkNode {
-  constructor(public value?: any, public next?: LinkNode) {}
+export class LinkNode<T> {
+  constructor(public value?: T, public next?: LinkNode<T>) {}
 }
 
 export default class LinkList {
-  static from(list: any[]): LinkNode {
+  static from<T>(list: T[]): LinkNode<T> {
     if (!list.length) {
       return new LinkNode();
     }
@@ -18,7 +18,7 @@ export default class LinkList {
     return start;
   }
 
-  static push(head: LinkNode, el: any): LinkNode {
+  static push<T>(head: LinkNode<T>, el: any): LinkNode<T> {
     const ele = Array.isArray(el) ? el : Array.of(el);
     const start = LinkList.from(ele);
     start.next = head;
