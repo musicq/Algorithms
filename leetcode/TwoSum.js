@@ -35,10 +35,3 @@ var twoSum = function(nums, target) {
         i += 1;
     }
 };
-
-const nums = [3, 11, 2, 7, 15];
-const target = 9;
-
-const r = twoSum(nums, target);
-
-console.log(r);
