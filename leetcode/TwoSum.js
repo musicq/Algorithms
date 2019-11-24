@@ -19,17 +19,22 @@
  * @param {number} target
  * @return {number[]}
  */
-function twoSum(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      } else {
-        continue;
-      }
+var twoSum = function(nums, target) {
+    let map = new Map();
+    let i = 0;
+
+    while (i < nums.length) {
+        const num = nums[i];
+        const k = map.get(target - num);
+
+        if (k !== undefined) {
+            return [k, i];
+        }
+
+        map.set(num, i);
+        i += 1;
     }
-  }
-}
+};
 
 const nums = [3, 11, 2, 7, 15];
 const target = 9;
