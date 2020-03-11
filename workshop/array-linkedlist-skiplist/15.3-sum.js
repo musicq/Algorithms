@@ -81,3 +81,5 @@ var threeSum = function(nums) {
   return r;
 };
 // @lc code=end
+
+// Thought: 2 pointers, skip the same element when the composition is satisfied the requirement.
