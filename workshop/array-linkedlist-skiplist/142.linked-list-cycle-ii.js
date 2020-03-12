@@ -83,11 +83,11 @@ var detectCycle = function(head) {
   let fp = head;
   let isCycle = false;
 
-  while (fp && fp.next && fp.next.next) {
+  while (fp !== null && fp.next !== null) {
     sp = sp.next;
     fp = fp.next.next;
 
-    if (fp === sp) {
+    if (sp === fp) {
       isCycle = true;
       break;
     }
@@ -96,7 +96,6 @@ var detectCycle = function(head) {
   if (!isCycle) return null;
 
   sp = head;
-
   while (sp !== fp) {
     sp = sp.next;
     fp = fp.next;
