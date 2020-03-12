@@ -10,8 +10,9 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-  let f = new Array(n + 1);
+  if (!n) return 1;
 
+  let f = new Array(n + 1);
   f[1] = 1;
   f[2] = 2;
 
