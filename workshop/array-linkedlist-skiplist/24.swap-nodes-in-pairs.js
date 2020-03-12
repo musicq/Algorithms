@@ -59,13 +59,11 @@ var swapPairs = function(head) {
 
 // Recursive
 var swapPairs = function(head) {
-  if (head === null || head.next === null) {
-    return head;
-  }
+  if (head === null || head.next === null) return head;
 
-  let n = head.next;
+  let t = head.next;
   head.next = swapPairs(head.next.next);
-  n.next = head;
+  t.next = head;
 
-  return n;
+  return t;
 };
