@@ -1,1 +1,6 @@
-javascript:(function(){if (window.location.host.indexOf('leetcode')===-1)return;window.location.href=window.location.href.indexOf('leetcode.com')>0?window.location.href.replace('leetcode.com','leetcode-cn.com'):window.location.href.replace('-cn','')})()
+javascript: (function() {
+  let d = ['leetcode.com', 'leetcode-cn.com'];
+  if (d.indexOf(window.location.host) === -1) return;
+  let h = window.location.href;
+  window.location.href = h.indexOf('leetcode.com') > 0 ? h.replace('leetcode', 'leetcode-cn') : h.replace('-cn', '');
+})();
