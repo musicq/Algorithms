@@ -1,0 +1,1 @@
+javascript:(function(){if (window.location.host.indexOf('leetcode')===-1)return;window.location.href=window.location.href.indexOf('leetcode.com')>0?window.location.href.replace('leetcode.com','leetcode-cn.com'):window.location.href.replace('-cn','')})()
