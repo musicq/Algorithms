@@ -84,15 +84,13 @@ var hasCycle = function(head) {
   if (head === null || head.next === null) return false;
 
   let sp = head;
-  let fp = sp.next.next;
+  let fp = head;
 
-  while (fp && fp.next && fp.next.next) {
-    if (sp === fp) {
-      return true;
-    }
-
-    fp = fp.next.next;
+  while (fp && fp.next) {
     sp = sp.next;
+    fp = fp.next.next;
+
+    if (sp === fp) return true;
   }
 
   return false;
