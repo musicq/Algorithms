@@ -40,9 +40,7 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-  if (!nums || nums.length < 3) {
-    return [];
-  }
+  if (!nums || nums.length < 3) return [];
 
   nums.sort((a, b) => a - b);
 
@@ -59,18 +57,17 @@ var threeSum = function(nums) {
     let R = nums.length - 1;
 
     while (L < R) {
-      let s = nums[i] + nums[L] + nums[R];
+      let sum = nums[i] + nums[L] + nums[R];
 
-      if (s === 0) {
+      if (sum === 0) {
         r.push([nums[i], nums[L], nums[R]]);
 
-        // skip the same element
-        while (nums[L] === nums[L + 1]) L++;
-        while (nums[R] === nums[R - 1]) R--;
+        while (L + 1 < nums.length && nums[L] === nums[L + 1]) L++;
+        while (R > 0 && nums[R] === nums[R - 1]) R--;
 
         L++;
         R--;
-      } else if (s < 0) {
+      } else if (sum < 0) {
         L++;
       } else {
         R--;
