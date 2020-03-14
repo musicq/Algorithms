@@ -55,11 +55,29 @@
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-  let n = 0;
-  while(head !== null) {
-    n++;
-    head = head.next;
+  if (head === null) return head;
+
+  let count = 0;
+  let p = head;
+
+  while (p !== null && count !== k) {
+    p = p.next;
+    count++;
   }
 
+  if (count === k) {
+    p = reverseKGroup(p, k);
+
+    while (count-- > 0) {
+      let t = head.next;
+      head.next = p;
+      p = head;
+      head = t;
+    }
+
+    head = p;
+  }
+
+  return head;
 };
 // @lc code=end
