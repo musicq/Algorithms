@@ -68,18 +68,15 @@
  */
 var removeDuplicates = function(nums) {
   if (!nums) return 0;
-  if (nums.lenght < 2) return nums.length;
+  if (nums.length < 2) return nums.length;
 
   let j = 0;
-  let len = 1;
-
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[j]) {
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i-1]) {
       nums[++j] = nums[i];
-      len += 1;
     }
   }
 
-  return len;
+  return j+1;
 };
 // @lc code=end
