@@ -50,6 +50,17 @@ var merge = function(nums1, m, nums2, n) {
   let last = m + n - 1;
 
   while (n > 0) {
+    nums1[last--] = nums1[m - 1] > nums2[n - 1] ? nums1[--m] : nums2[--n];
+  }
+};
+// @lc code=end
+
+var merge = function(nums1, m, nums2, n) {
+  if (n === 0) return;
+
+  let last = m + n - 1;
+
+  while (n > 0) {
     if (nums1[m - 1] > nums2[n - 1]) {
       nums1[last--] = nums1[--m];
     } else {
@@ -57,4 +68,3 @@ var merge = function(nums1, m, nums2, n) {
     }
   }
 };
-// @lc code=end
