@@ -56,9 +56,6 @@ var plusOne = function(digits) {
     digits[i] = 0;
   }
 
-  let r = new Array(digits.length + 1).fill(0);
-  r[0] = 1;
-
-  return r;
+  return [1].concat(digits);
 };
 // @lc code=end
