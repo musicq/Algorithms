@@ -37,6 +37,8 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+  if (!nums || nums.length < 2) return [];
+
   let map = new Map();
 
   for (let i = 0; i < nums.length; i++) {
