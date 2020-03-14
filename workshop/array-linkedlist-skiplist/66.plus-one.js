@@ -47,20 +47,18 @@
 var plusOne = function(digits) {
   if (!digits || digits.length === 0) return [1];
 
-  let leading = true;
-
   for (let i = digits.length - 1; i >= 0; i--) {
-    if (digits[i] === 9 && leading) {
-      digits[i] = 0;
-      leading = true;
-    } else if (leading) {
+    if (digits[i] < 9) {
       digits[i]++;
-      leading = false;
+      return digits;
     }
+
+    digits[i] = 0;
   }
 
-  if (!leading) return digits;
+  let r = new Array(digits.length + 1).fill(0);
+  r[0] = 1;
 
-  return [1].concat(digits);
+  return r;
 };
 // @lc code=end
