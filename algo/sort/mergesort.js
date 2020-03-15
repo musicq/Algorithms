@@ -31,8 +31,8 @@ function merge(A, t, lPos, rPos, rEnd) {
     t[start++] = A[rPos++];
   }
 
-  for (let i = 0; i < totalNum; i++, rEnd--) {
-    A[rEnd] = t[rEnd];
+  for (let i = 0; i < totalNum; i++) {
+    A[rEnd] = t[rEnd--];
   }
 }
 
