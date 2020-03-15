@@ -4,7 +4,7 @@ function inversePairs(A) {
   let n = A.length;
   let t = new Array(n);
 
-  msort(A, t, 0, n - 1);
+  return msort(A, t, 0, n - 1);
 }
 
 function msort(A, t, l, r) {
