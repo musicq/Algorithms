@@ -40,7 +40,7 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-  if (!nums || nums.length === 0) return;
+  if (!nums || nums.length === 0) return 0;
 
   let target = nums[0];
   let count = 1;
@@ -49,7 +49,10 @@ var majorityElement = function(nums) {
     if (nums[i] === target) count++;
     else count--;
 
-    if (count === 0) target = nums[i];
+    if (count === 0) {
+      target = nums[i];
+      count++;
+    }
   }
 
   return target;
