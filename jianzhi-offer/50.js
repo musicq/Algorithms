@@ -18,15 +18,17 @@ var firstUniqChar = function(s) {
 
 // use char code
 var firstUniqChar = function(s) {
+  if (!s || s.trim() === '') return ' ';
+
   let f = new Array(26).fill(0); // assume only containes a-z
-  let ac = 'a'.charCodeAt(0);
+  let a = 'a'.charCodeAt(0);
 
   for (let i = 0; i < s.length; i++) {
-    f[s[i].charCodeAt(0) - ac]++;
+    f[s[i].charCodeAt(0) - a]++;
   }
 
   for (let i = 0; i < s.length; i++) {
-    if (f[s[i].charCodeAt(0) - ac] === 1) return s[i];
+    if (f[s[i].charCodeAt(0) - a] === 1) return s[i];
   }
 
   return ' ';
