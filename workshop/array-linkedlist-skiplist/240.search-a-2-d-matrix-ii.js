@@ -49,7 +49,7 @@
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-  if (!matrix || target == undefined || matrix.length < 1) return false;
+  if (!matrix || target == undefined || matrix.length < 1 || matrix[0].length < 1) return false;
 
   let row = matrix.length;
   let col = matrix[0].length;
