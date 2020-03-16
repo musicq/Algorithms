@@ -1,21 +1,21 @@
-function inversePairs(A) {
-  if (!A || A.length < 2) return 0;
+var reversePairs = function(nums) {
+  if (!nums || nums.length < 2) return 0;
 
-  let n = A.length;
+  let n = nums.length;
   let t = new Array(n);
 
-  return msort(A, t, 0, n - 1);
-}
+  return msort(nums, t, 0, n - 1);
+};
 
 function msort(A, t, l, r) {
   if (l === r) return 0;
 
   let c = l + ((r - l) >> 1);
-  let pairsL = msort(A, t, l, c);
-  let pairsR = msort(A, t, c + 1, r);
+  let left = msort(A, t, l, c);
+  let right = msort(A, t, c + 1, r);
   let pairs = merge(A, t, l, c + 1, r);
 
-  return pairs + pairsL + pairsR;
+  return left + right + pairs;
 }
 
 function merge(A, t, lp, rp, re) {
@@ -36,7 +36,7 @@ function merge(A, t, lp, rp, re) {
   while (le >= lp) t[p--] = A[le--];
   while (re >= rp) t[p--] = A[re--];
 
-  for (let i = total - 1; i >= 0; i--) {
+  for (let i = 0; i < total; i++) {
     A[lp] = t[lp++];
   }
 
