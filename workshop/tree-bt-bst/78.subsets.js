@@ -61,3 +61,7 @@ function backtrack(A, start, r, t) {
   }
 }
 // @lc code=end
+
+// NOTICE:
+// Line 55, need to copy the array instead of using a reference.
+// Or the value will be modified and get the wrong result
