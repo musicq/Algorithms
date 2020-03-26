@@ -43,9 +43,8 @@
 var groupAnagrams = function(strs) {
   if (!strs || strs.length === 0) return [];
 
-  let map = new Map();
   let count = new Array(26);
-
+  let map = new Map();
   let a = 'a'.charCodeAt(0);
 
   for (let s of strs) {
@@ -53,11 +52,8 @@ var groupAnagrams = function(strs) {
 
     for (let c of s) count[c.charCodeAt(0) - a]++;
 
-    let key = '';
-    for (let i = 0; i < 26; i++) {
-      key += '#';
-      key += count[i];
-    }
+    let key = count.join('#');
+
     if (!map.has(key)) map.set(key, []);
     map.get(key).push(s);
   }
