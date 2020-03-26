@@ -47,26 +47,16 @@
  */
 var isAnagram = function(s, t) {
   if (s === t) return true;
-  if (!s || !t) return false;
+  if (!s || !t || s.length !== t.length) return false;
 
-  let cs = count(s);
-  let ct = count(t);
-
-  for (let i = 0; i < cs.length; i++) {
-    if (cs[i] !== ct[i]) return false;
-  }
-
-  return true;
-};
-
-function count(s) {
-  let dic = new Array(26).fill(0);
+  let count = new Array(26).fill(0);
   let a = 'a'.charCodeAt(0);
 
-  for (let c of s) {
-    dic[c.charCodeAt(0) - a]++;
+  for (let i = 0; i < s.length; i++) {
+    count[s.charCodeAt(i) - a]++;
+    count[t.charCodeAt(i) - a]--;
   }
 
-  return dic;
-}
+  return count.every(c => c === 0);
+};
 // @lc code=end
