@@ -59,7 +59,7 @@ function generate(r, left, right, n, s) {
     generate(r, left + 1, right, n, s + '(');
   }
 
-  if (right < left && right < n) {
+  if (right < left) {
     generate(r, left, right + 1, n, s + ')');
   }
 
