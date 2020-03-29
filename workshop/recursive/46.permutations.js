@@ -40,22 +40,22 @@
 var permute = function(nums) {
   let r = [];
 
-  generate(r, [], nums.slice(), nums);
+  generate(r, [], nums);
 
   return r;
 };
 
-function generate(r, t, cn, n) {
+function generate(r, t, n) {
   if (t.length === n.length) {
     r.push(t.slice());
     return;
   }
 
-  for (let i = 0; i < cn.length; i++) {
-    t.push(cn[i]);
-    let copy = cn.slice();
-    copy.splice(i, 1);
-    generate(r, t, copy, n);
+  for (let i = 0; i < n.length; i++) {
+    if (t.includes(n[i])) continue;
+
+    t.push(n[i]);
+    generate(r, t, n);
     t.pop();
   }
 }
