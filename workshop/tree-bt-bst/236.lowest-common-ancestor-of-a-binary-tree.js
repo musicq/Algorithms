@@ -67,10 +67,13 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
+  // terminator
   if (root === null) return root;
 
-  if (root.val === p.val || root.val === q.val) return root;
+  // process
+  if (p.val === root.val || q.val === root.val) return root;
 
+  // drill down
   let left = lowestCommonAncestor(root.left, p, q);
   let right = lowestCommonAncestor(root.right, p, q);
 
@@ -78,5 +81,6 @@ var lowestCommonAncestor = function(root, p, q) {
   if (left === null && right === null) return null;
 
   return left || right;
+  // reverse state
 };
 // @lc code=end
