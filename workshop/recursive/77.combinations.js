@@ -42,23 +42,21 @@
 var combine = function(n, k) {
   let r = [];
 
-  generate(r, [], n, k);
+  generate(r, [], 1, n, k);
 
   return r;
 };
 
-function generate(r, t, n, k) {
+function generate(r, t, s, n, k) {
   if (t.length === k) {
     r.push(t.slice());
     return;
   }
 
-  for (let i = 1; i < n + 1; i++) {
-    if (t.length === 0 || i > t[t.length - 1]) {
-      t.push(i);
-      generate(r, t, n, k);
-      t.pop();
-    }
+  for (let i = s; i < n + 1; i++) {
+    t.push(i);
+    generate(r, t, i + 1, n, k);
+    t.pop();
   }
 }
 // @lc code=end
