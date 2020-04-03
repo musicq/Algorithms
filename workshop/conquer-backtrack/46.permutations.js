@@ -45,17 +45,17 @@ var permute = function(nums) {
   return r;
 };
 
-function generate(r, t, n) {
-  if (t.length === n.length) {
+function generate(r, t, nums) {
+  if (t.length === nums.length) {
     r.push(t.slice());
     return;
   }
 
-  for (let i = 0; i < n.length; i++) {
-    if (t.includes(n[i])) continue;
+  for (let i = 0; i < nums.length; i++) {
+    if (t.includes(nums[i])) continue;
 
-    t.push(n[i]);
-    generate(r, t, n);
+    t.push(nums[i]);
+    generate(r, t, nums);
     t.pop();
   }
 }
