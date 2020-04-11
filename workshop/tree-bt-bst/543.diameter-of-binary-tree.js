@@ -56,19 +56,19 @@
 var diameterOfBinaryTree = function (root) {
   if (root === null) return 0
 
-  let max = [0]
-  maxDiameter(root, max)
-  return max[0]
-}
+  let max = 0
 
-function maxDiameter(root, max) {
-  if (root === null) return 0
+  function fn(node) {
+    if (node === null) return 0
 
-  let left = maxDiameter(root.left, max)
-  let right = maxDiameter(root.right, max)
+    let l = fn(node.left)
+    let r = fn(node.right)
 
-  max[0] = Math.max(max[0], left + right)
+    max = Math.max(max, l + r)
+    return 1 + Math.max(l, r)
+  }
 
-  return Math.max(left, right) + 1
+  fn(root)
+  return max
 }
 // @lc code=end
