@@ -37,30 +37,30 @@
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
-  if (n === 0) return [];
+var generateParenthesis = function (n) {
+  if (!n || n === 0) return []
 
-  let r = [];
-  generate(r, 0, 0, n, '');
+  let r = []
+  generate(r, 0, 0, n, '')
 
-  return r;
-};
+  return r
+}
 
 function generate(r, left, right, n, s) {
   // terminator
   if (left === n && right === n) {
-    r.push(s);
-    return;
+    r.push(s)
+    return
   }
 
   // process
   // drill down
   if (left < n) {
-    generate(r, left + 1, right, n, s + '(');
+    generate(r, left + 1, right, n, s + '(')
   }
 
   if (right < left) {
-    generate(r, left, right + 1, n, s + ')');
+    generate(r, left, right + 1, n, s + ')')
   }
 
   // reverse state
