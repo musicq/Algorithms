@@ -89,6 +89,33 @@
 var minMutation = function (start, end, bank) {
   if (start === end) return 0
 
+  let bankSet = new Set(bank)
+  let q = [[start, 0]]
+  let genes = ['A', 'C', 'G', 'T']
+
+  while (q.length !== 0) {
+    let [gene, count] = q.shift()
+    if (gene === end) return count
+
+    for (let i = 0; i < gene.length; i++) {
+      for (let g of genes) {
+        let newGene = gene.slice(0, i) + g + gene.slice(i + 1)
+
+        if (bankSet.has(newGene)) {
+          q.push([newGene, count + 1])
+          bankSet.delete(newGene)
+        }
+      }
+    }
+  }
+
+  return -1
+}
+// @lc code=end
+
+var minMutation = function (start, end, bank) {
+  if (start === end) return 0
+
   let s = [start]
   let visited = new Set([start])
   let level = 0
@@ -123,4 +150,3 @@ var minMutation = function (start, end, bank) {
 
   return -1
 }
-// @lc code=end
