@@ -94,16 +94,19 @@ var minMutation = function (start, end, bank) {
   let genes = ['A', 'C', 'G', 'T']
 
   while (q.length !== 0) {
-    let [gene, count] = q.shift()
-    if (gene === end) return count
+    let len = q.length
+    while (len-- > 0) {
+      let [gene, count] = q.shift()
+      if (gene === end) return count
 
-    for (let i = 0; i < gene.length; i++) {
-      for (let g of genes) {
-        let newGene = gene.slice(0, i) + g + gene.slice(i + 1)
+      for (let i = 0; i < gene.length; i++) {
+        for (let g of genes) {
+          let newGene = gene.slice(0, i) + g + gene.slice(i + 1)
 
-        if (bankSet.has(newGene)) {
-          q.push([newGene, count + 1])
-          bankSet.delete(newGene)
+          if (bankSet.has(newGene)) {
+            q.push([newGene, count + 1])
+            bankSet.delete(newGene)
+          }
         }
       }
     }
