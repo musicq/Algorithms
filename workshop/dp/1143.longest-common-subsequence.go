@@ -101,9 +101,9 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 //   a c e
 // a[1 1 1]
 // b[1 1 1]
-// c[1 2 1]
-// d[1 1 1]
-// e[1 1 2]
+// c[1 2 2]
+// d[1 2 2]
+// e[1 2 3]
 
 //   b l
 // y 0 0
