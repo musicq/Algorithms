@@ -47,7 +47,27 @@ package dp
 
 // @lc code=start
 func climbStairs(n int) int {
-	if n < 2 {
+	if n <= 2 {
+		return n
+	}
+
+	pre1 := 1
+	pre2 := 2
+	r := 0
+
+	for i := 3; i <= n; i++ {
+		r = pre1 + pre2
+		pre1 = pre2
+		pre2 = r
+	}
+
+	return r
+}
+
+// @lc code=end
+
+func climbStairs1(n int) int {
+	if n <= 2 {
 		return n
 	}
 
@@ -62,5 +82,3 @@ func climbStairs(n int) int {
 
 	return f[n]
 }
-
-// @lc code=end
