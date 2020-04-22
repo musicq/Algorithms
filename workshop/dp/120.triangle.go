@@ -40,6 +40,32 @@ package dp
 
 // @lc code=start
 func minimumTotal(triangle [][]int) int {
+	n := len(triangle)
+	f := triangle[n-1]
+
+	// 自倒数第二行向上累加
+	for i := n - 2; i >= 0; i-- {
+		for j := 0; j <= i; j++ {
+			f[j] = min(f[j], f[j+1]) + triangle[i][j]
+		}
+	}
+
+	return f[0]
+}
+
+func min(a int, b int) int {
+	if a < b {
+		return a
+	}
+
+	return b
+}
+
+// @lc code=end
+
+// f[i][j] = min(f[i-1][j],f[i-1][j-1]
+
+func minimumTotal1(triangle [][]int) int {
 	rows := len(triangle)
 	if rows == 0 {
 		return 0
@@ -75,15 +101,3 @@ func minimumTotal(triangle [][]int) int {
 	}
 	return min
 }
-
-func min(a int, b int) int {
-	if a < b {
-		return a
-	}
-
-	return b
-}
-
-// @lc code=end
-
-// f[i][j] = min(f[i-1][j],f[i-1][j-1]
