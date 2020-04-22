@@ -68,7 +68,7 @@ package dp
 func longestCommonSubsequence(text1 string, text2 string) int {
 	l1, l2 := len(text1), len(text2)
 
-	if l1 == 0 || l2 == 0 {
+	if l1*l2 == 0 {
 		return 0
 	}
 
@@ -77,23 +77,24 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 		f[i] = make([]int, l2+1)
 	}
 
-	for i := 1; i <= l1; i++ {
-		for j := 1; j <= l2; j++ {
-			if text1[i-1:i] == text2[j-1:j] {
-				f[i][j] = 1 + f[i-1][j-1]
-			} else {
-				max := f[i-1][j]
+	for i, s1 := range text1 {
+		for j, s2 := range text2 {
+			f[i+1][j+1] = max(f[i+1][j], f[i][j+1])
 
-				if f[i-1][j] < f[i][j-1] {
-					max = f[i][j-1]
-				}
-
-				f[i][j] = max
+			if s1 == s2 {
+				f[i+1][j+1] = 1 + f[i][j]
 			}
 		}
 	}
 
 	return f[l1][l2]
+}
+
+func max(a int, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 // @lc code=end
