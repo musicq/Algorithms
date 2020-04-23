@@ -1,4 +1,4 @@
-package dp
+package lc1143
 
 /*
  * @lc app=leetcode id=1143 lang=golang

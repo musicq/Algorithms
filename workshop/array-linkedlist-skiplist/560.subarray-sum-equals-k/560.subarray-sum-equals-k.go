@@ -1,3 +1,5 @@
+package lc560
+
 /*
  * @lc app=leetcode id=560 lang=golang
  *
@@ -58,4 +60,3 @@ func subarraySum(nums []int, k int) int {
 }
 
 // @lc code=end
-
