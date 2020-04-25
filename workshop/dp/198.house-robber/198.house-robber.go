@@ -48,6 +48,31 @@ package lc198
 
 // @lc code=start
 func rob(nums []int) int {
+	prevMax := 0
+	curMax := 0
+
+	for _, x := range nums {
+		t := curMax
+		curMax = max(prevMax + x, curMax)
+		prevMax = t
+	}
+
+	return curMax
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+
+	return b
+}
+
+// @lc code=end
+
+// f[i] = max(f[i-1] + 0, f[i-2] + cur)
+
+func rob1(nums []int) int {
 	n := len(nums)
 
 	if n == 0 {
@@ -69,15 +94,3 @@ func rob(nums []int) int {
 
 	return f[n-1]
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-
-	return b
-}
-
-// @lc code=end
-
-// f[i] = max(f[i-1] + 0, f[i-2] + cur)
