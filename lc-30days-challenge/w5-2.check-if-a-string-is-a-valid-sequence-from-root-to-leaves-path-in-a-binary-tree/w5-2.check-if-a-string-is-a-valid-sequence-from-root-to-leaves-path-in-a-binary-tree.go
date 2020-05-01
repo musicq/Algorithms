@@ -34,6 +34,7 @@ package w52
  * Each node's value is between [0 - 9].
  */
 
+ // TreeNode define tree structure
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
