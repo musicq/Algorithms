@@ -1,3 +1,5 @@
+https://shimo.im/docs/3xvghYh3JJPKwdvt/read
+
 ```python
 def divide_conquer(problem, param1, param2, ...):
   # recursion terminator
