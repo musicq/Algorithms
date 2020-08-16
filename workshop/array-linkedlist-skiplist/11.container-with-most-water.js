@@ -43,31 +43,31 @@
  * @param {number[]} height
  * @return {number}
  */
-var maxArea = function(height) {
-  if (!height || height.length < 2) return 0;
+var maxArea = function (height) {
+  if (!height || height.length < 2) return 0
 
-  let r = 0;
-
-  let j = height.length - 1;
-  let i = 0;
+  let r = 0
+  let i = 0
+  let j = height.length - 1
 
   while (i < j) {
-    let w = j - i;
-    let h = 0;
+    let h = 0
+    let w = j - i
 
-    if (height[i] < height[j]) {
-      h = height[i];
-      i++;
+    if (height[i] > height[j]) {
+      h = height[j]
+      j = j - 1
     } else {
-      h = height[j];
-      j--;
+      h = height[i]
+      i = i + 1
     }
 
-    r = Math.max(h * w, r);
+    let area = h * w
+    r = Math.max(r, area)
   }
 
-  return r;
-};
+  return r
+}
 // @lc code=end
 
 // Thought
