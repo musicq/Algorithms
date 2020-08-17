@@ -41,32 +41,34 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-  return reverse(head, null);
-};
+var reverseList = function (head) {
+  return reverse(head, null)
+}
 
 function reverse(head, prev) {
-  if (!head) return prev;
+  if (!head) return prev
 
-  let next = head.next;
-  head.next = prev;
-  prev = head;
+  let next = head.next
+  head.next = prev
+  prev = head
 
-  return reverse(next, prev);
+  return reverse(next, prev)
 }
 // @lc code=end
 
 // Iteration solution
-var reverseList = function(head) {
-  let prev = null;
-  let p = head;
+var reverseList = function (head) {
+  if (head === null) return head
+
+  let prev = null
+  let p = head
 
   while (p !== null) {
-    let next = p.next;
-    p.next = prev;
-    prev = p;
-    p = next;
+    let next = p.next
+    p.next = prev
+    prev = p
+    p = next
   }
 
-  return prev;
-};
+  return prev
+}
