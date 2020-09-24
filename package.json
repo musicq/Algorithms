@@ -4,5 +4,15 @@
   "main": "index.js",
   "repository": "https://github.com/musicq/Algorithms.git",
   "author": "musicq <liang.kui@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
 }
