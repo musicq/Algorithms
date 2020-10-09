@@ -25,7 +25,7 @@ Linked List 实战题目
 - https://leetcode-cn.com/problems/move-zeroes/
 - https://leetcode-cn.com/problems/plus-one/
 
-# Stack & Queue
+# LinkedListStack & Queue
 
 预习题目
 

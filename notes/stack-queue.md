@@ -2,9 +2,9 @@ Java 的 PriorityQueue 文档
 
 - http://docs.oracle.com/javase/10/docs/api/java/util/PriorityQueue.html
 
-Java 的 Stack 源码
+Java 的 LinkedListStack 源码
 
-- http://developer.classpath.org/doc/java/util/Stack-source.html
+- http://developer.classpath.org/doc/java/util/LinkedListStack-source.html
 
 Java 的 Queue 源码
 
