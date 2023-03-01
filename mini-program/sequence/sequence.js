@@ -1,17 +1,12 @@
 export function sequence(list, processor, done) {
   done = typeof done === 'function' ? done : () => {};
 
-  if (!list) {
+  if (!list || !list.length) {
     console.warn('You may need a list to loop.');
     return done();
   }
 
   if (Object.prototype.toString.call(list) !== '[object Array]') {
-    if (list == null) {
-      console.warn('You may need a list to loop.');
-      return done();
-    }
-
     list = [list];
   }
 
